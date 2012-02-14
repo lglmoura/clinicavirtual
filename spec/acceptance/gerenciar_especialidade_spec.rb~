@@ -7,12 +7,24 @@ feature 'gerenciar especialidade' do
   end
   
   scenario 'incluir especialidade' do
-    visit new_esepcialidade_path
+    visit new_especialidade_path
+    
     fill_in 'Descrição', :with => 'Cardiologista'
         
     click_button 'Salvar'
-    page.should have_content 'Categoria cadastrada com sucesso'
+   
     page.should have_content 'Descrição: Cardiologista'
+  end
+
+  scenario 'alterar especialidade' do #, :javascript => true  do
+    especialidade = FactoryGirl.build(:especialidade)
+    visit edit_especialidade_path(especialidade)
+   fill_in 'Descrição', :with => 'Cardiologista'
+        
+    click_button 'Salvar'
+   
+    page.should have_content 'Descrição: Cardiologista'
+    
   end
 
  

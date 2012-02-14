@@ -1,0 +1,4 @@
+Factory.define :especialidae do |c|
+  c.sequence(:descricao) {|n| "especialidade#{n}" }
+  
+end

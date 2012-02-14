@@ -16,5 +16,16 @@ feature 'gerenciar especialidade' do
     page.should have_content 'Descrição: Cardiologista'
   end
 
+  scenario 'alterar especialidade' do #, :javascript => true  do
+    especialidade = FactoryGirl.create(:especialidade)
+    visit edit_especialidade_path(especialidade)
+   fill_in 'Descrição', :with => 'Cardiologista'
+        
+    click_button 'Salvar'
+   
+    page.should have_content 'Descrição: Cardiologista'
+    
+  end
+
  
 end
