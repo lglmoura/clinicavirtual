@@ -13,7 +13,7 @@
     <td><%= especialidade.descricao %></td>
     <td><%= link_to 'Show', especialidade %></td>
     <td><%= link_to 'Edit', edit_especialidade_path(especialidade) %></td>
-    <td><%= link_to 'Excluir', especialidade, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', especialidade, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

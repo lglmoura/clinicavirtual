@@ -27,5 +27,14 @@ feature 'gerenciar especialidade' do
     
   end
 
+  scenario 'excluir especialidade' do #, :javascript => true  do
+    especialidade = FactoryGirl.create(:especialidade)
+    visit especialidades_path
+
+    click_link 'Excluir'
+    
+    Especialidade.count.should == 0
+  end
+
  
 end

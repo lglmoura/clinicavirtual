@@ -17,7 +17,7 @@ feature 'gerenciar especialidade' do
   end
 
   scenario 'alterar especialidade' do #, :javascript => true  do
-    especialidade = FactoryGirl.build(:especialidade)
+    especialidade = FactoryGirl.create(:especialidade)
     visit edit_especialidade_path(especialidade)
    fill_in 'Descrição', :with => 'Cardiologista'
         
@@ -25,6 +25,15 @@ feature 'gerenciar especialidade' do
    
     page.should have_content 'Descrição: Cardiologista'
     
+  end
+
+  scenario 'excluir especialidade' do #, :javascript => true  do
+    especialidade = FactoryGirl.create(:especialidade)
+    visit especialidades_path
+
+    click_link 'Excluir'
+    
+    Cliente.count.should == 0
   end
 
  
