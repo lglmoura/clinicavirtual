@@ -6,7 +6,7 @@ feature 'gerenciar medico' do
   before :each do
   end
   
-  scenario 'incluir medico' do
+  scenario 'incluir especialidade' do
     visit new_medico_path
     
     especialidade = FactoryGirl.create(:especialidade,:descricao => 'Cardiologista')   
