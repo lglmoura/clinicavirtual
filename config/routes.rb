@@ -1,4 +1,6 @@
 Clinicavirtual::Application.routes.draw do
+  resources :medicos
+
   resources :especialidades
 
   # The priority is based upon order of creation:
