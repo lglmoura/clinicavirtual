@@ -15,6 +15,17 @@ feature 'gerenciar medico' do
     
 
   end
+
+  scenario 'alterar medico' do #, :javascript => true do
+
+    especialidade = FactoryGirl.create(:especialidade,:descricao => 'Cardiologista') 
+    medico = FactoryGirl.create(:medico, :especialidade => especialidade)
+
+    visit edit_medico_path(medico)
+
+    preencher_e_verificar_medico
+
+  end
   
   def preencher_e_verificar_medico
 
@@ -28,7 +39,7 @@ feature 'gerenciar medico' do
    
     page.should have_content 'Nome: Luiz'
     page.should have_content 'Endereço: Rua dos Bobos'
-    page.should have_content 'Telefone : 123456789'
+    page.should have_content 'Telefone: 123456789'
     page.should have_content 'Especialidade: Cardiologista'
 
   end

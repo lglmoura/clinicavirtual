@@ -15,6 +15,27 @@ feature 'gerenciar medico' do
     
 
   end
+
+  scenario 'alterar medico' do #, :javascript => true do
+
+    especialidade = FactoryGirl.create(:especialidade,:descricao => 'Cardiologista') 
+    medico = FactoryGirl.create(:medico, :especialidade => especialidade)
+
+    visit edit_medico_path(medico)
+
+    preencher_e_verificar_medico
+
+  end
+
+  scenario 'Excluir medico' do #, :javascript => true do
+
+    especialidade = FactoryGirl.create(:especialidade,:descricao => 'Cardiologista') 
+    medico = FactoryGirl.create(:medico, :especialidade => especialidade)
+
+    visit medicos_path
+    click_link 'Excluir'
+
+  end
   
   def preencher_e_verificar_medico
 
